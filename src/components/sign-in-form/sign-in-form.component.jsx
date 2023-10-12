@@ -1,4 +1,5 @@
 import {useState} from "react"
+
 import {
   createUserDocFromAuth,
   signInAuthUserWithEmailAndPassword,
@@ -35,8 +36,7 @@ const SignInForm = () => {
     event.preventDefault()
 
     try {
-      const signedInUser = await signInAuthUserWithEmailAndPassword(email, password)
-      console.log(signedInUser)
+      await signInAuthUserWithEmailAndPassword(email, password)
       resetFormFields()
     } catch (error) {
       if (error.code === 'auth/email-already-in-use'){
